@@ -1,6 +1,10 @@
 # Taskmaster
 Taskmaster project for 42
 
+# Shortcut link
+
+[Go to server code](https://github.com/AlexisVisco/Taskmaster/tree/master/server/src/main/java/fr/aviscogl/taskmaster) or [Go to client code](https://github.com/AlexisVisco/Taskmaster/tree/master/client/src/main/java/fr/aviscogl/taskmaster)
+
 ## Basic features
 
 Your program must be able to start jobs as child processes, and keep them alive, restarting
