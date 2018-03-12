@@ -23,6 +23,4 @@ public class Server {
                 new RequestHandler(listener.accept(), CLIENT_NUMBER++).start();
         }
     }
-
-
 }
