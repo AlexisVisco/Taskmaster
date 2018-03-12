@@ -1,7 +1,7 @@
 # Taskmaster
 Taskmaster project for 42
 
-# Shortcut link
+## Shortcut link
 
 [Go to server code](https://github.com/AlexisVisco/Taskmaster/tree/master/server/src/main/java/fr/aviscogl/taskmaster) or [Go to client code](https://github.com/AlexisVisco/Taskmaster/tree/master/client/src/main/java/fr/aviscogl/taskmaster)
 
@@ -27,3 +27,6 @@ When started, your program must remain in the foreground, and provide a control
 shell to the user. It does not HAVE to be a fully-fledged shell like 42sh, but it must be
 at the very least usable (Line editing, history... completion would also be nice). Take
 inspiration from supervisor’s control shell, supervisorctl.
+
+## PDF
+[pdf](https://cdn.intra.42.fr/pdf/pdf/134/taskmaster.en.pdf)
