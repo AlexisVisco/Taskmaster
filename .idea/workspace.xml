@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26f1ccb9-9740-4abd-a9b8-566f2055e05c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__jline_jline_2_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_12.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/client.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/client_main.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/client_test.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/server.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/server_main.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/server_test.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/.gitignore" afterPath="$PROJECT_DIR$/server/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/Server.java" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/Server.java" />
     </list>
     <ignored path="$PROJECT_DIR$/client/.gradle/" />
     <ignored path="$PROJECT_DIR$/client/build/" />
@@ -1299,7 +1283,7 @@
       <updated>1520879159521</updated>
       <workItem from="1520879166565" duration="8656000" />
       <workItem from="1520890291952" duration="1599000" />
-      <workItem from="1520969007419" duration="51000" />
+      <workItem from="1520969007419" duration="90000" />
     </task>
     <task id="LOCAL-00001" summary="add gitignore, fix server">
       <created>1520889574143</created>
@@ -1308,11 +1292,18 @@
       <option name="project" value="LOCAL" />
       <updated>1520889574143</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add .idea to work at 101">
+      <created>1520969084905</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1520969084905</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10306000" />
+    <option name="totallyTimeSpent" value="10345000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1353,7 +1344,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add gitignore, fix server" />
-    <option name="LAST_COMMIT_MESSAGE" value="add gitignore, fix server" />
+    <MESSAGE value="add .idea to work at 101" />
+    <option name="LAST_COMMIT_MESSAGE" value="add .idea to work at 101" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
