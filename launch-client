@@ -1,0 +1,1 @@
+cd client && gradle fatJar && java -jar /Users/alexis/dev/Taskmaster/client/build/libs/client-all-1.0-SNAPSHOT.jar

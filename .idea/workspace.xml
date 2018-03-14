@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26f1ccb9-9740-4abd-a9b8-566f2055e05c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/launch-client" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/main/java/fr/aviscogl/taskmaster/Client.java" afterPath="$PROJECT_DIR$/client/src/main/java/fr/aviscogl/taskmaster/Client.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/main/java/fr/aviscogl/taskmaster/Readline.java" afterPath="$PROJECT_DIR$/client/src/main/java/fr/aviscogl/taskmaster/Readline.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/Server.java" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/Server.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/CommandExecutor.java" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/CommandExecutor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/CommandHandler.java" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/CommandHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/CommandRouter.java" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/CommandRouter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/TestCommand.java" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/TestCommand.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/manage/RequestHandler.java" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/manage/RequestHandler.java" />
     </list>
     <ignored path="$PROJECT_DIR$/client/.gradle/" />
     <ignored path="$PROJECT_DIR$/client/build/" />
@@ -122,7 +114,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="e#9674#9678#0" expanded="true" />
+                <element signature="e#9693#9697#0" expanded="true" />
+                <element signature="e#9760#9764#0" expanded="true" />
+                <element signature="e#9789#9793#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -851,6 +848,7 @@
         <option value="$PROJECT_DIR$/client/src/main/java/fr/aviscogl/taskmaster/Client.java" />
         <option value="$PROJECT_DIR$/client/src/main/java/fr/aviscogl/taskmaster/Readline.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/TestCommand.java" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
       </list>
     </option>
   </component>
@@ -963,7 +961,7 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="PackagesPane" proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -1276,11 +1274,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521042526394</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="worked command framework, need more tests but that's fine">
+      <created>1521060166942</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1521060166942</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20487000" />
+    <option name="totallyTimeSpent" value="20620000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1296,7 +1301,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3531218" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25579977" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25579977" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13186814" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1342,7 +1347,8 @@
     <MESSAGE value="add gitignore, fix server" />
     <MESSAGE value="add .idea to work at 101" />
     <MESSAGE value="add command logic, need to test" />
-    <option name="LAST_COMMIT_MESSAGE" value="add command logic, need to test" />
+    <MESSAGE value="worked command framework, need more tests but that's fine" />
+    <option name="LAST_COMMIT_MESSAGE" value="worked command framework, need more tests but that's fine" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1732,7 +1738,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#9674#9678#0" expanded="true" />
+            <element signature="e#9693#9697#0" expanded="true" />
+            <element signature="e#9760#9764#0" expanded="true" />
+            <element signature="e#9789#9793#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
