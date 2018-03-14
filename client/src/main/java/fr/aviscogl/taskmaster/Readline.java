@@ -43,7 +43,7 @@ class Readline {
                 if (line.equals("exit"))
                     client.exitSocket("Manual exit");
                 else
-                    System.out.println(client.getResponseFromCommand(line));
+                    System.out.print(client.getResponseFromCommand(line));
             }
         } catch (IOException e) {
             client.exitSocket("Readline didn't work well...");

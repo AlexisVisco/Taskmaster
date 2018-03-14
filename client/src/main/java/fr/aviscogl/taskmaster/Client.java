@@ -31,7 +31,7 @@ public class Client {
             while ((res = in.readLine()) != null) {
                 if (res.equals(END_RESPONSE))
                     break;
-                lineFromServer.append(res);
+                lineFromServer.append(res).append('\n');
             }
         } catch (IOException ex) {
             exitSocket(ex.getMessage());

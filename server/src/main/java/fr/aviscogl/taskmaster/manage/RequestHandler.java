@@ -1,5 +1,6 @@
 package fr.aviscogl.taskmaster.manage;
 
+import fr.aviscogl.taskmaster.command.CommandHandler;
 import fr.aviscogl.taskmaster.log.Logger;
 
 import java.io.BufferedReader;
@@ -33,7 +34,7 @@ public class RequestHandler extends Thread {
                     String input = in.readLine();
                     Logger.log("Client #" + clientNumber + " send: " + input);
                     if (input != null)
-                        sendPacket(out, input.toUpperCase());
+                        CommandHandler.execute(input, out);
                     else
                         break;
                 }
