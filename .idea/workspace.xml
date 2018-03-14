@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26f1ccb9-9740-4abd-a9b8-566f2055e05c" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/CommandHandler.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/TestCommand.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/Server.java" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/Server.java" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/Command.java" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/Command.java" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/CommandArg.java" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/CommandRouter.java" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/CommandExecutor.java" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/CommandExecutor.java" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/log/Logger.java" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/log/Logger.java" />
     </list>
     <ignored path="$PROJECT_DIR$/client/.gradle/" />
     <ignored path="$PROJECT_DIR$/client/build/" />
@@ -1298,7 +1290,7 @@
       <workItem from="1520890291952" duration="1599000" />
       <workItem from="1520969007419" duration="90000" />
       <workItem from="1521016231491" duration="249000" />
-      <workItem from="1521036432600" duration="3821000" />
+      <workItem from="1521036432600" duration="3870000" />
     </task>
     <task id="LOCAL-00001" summary="add gitignore, fix server">
       <created>1520889574143</created>
@@ -1314,11 +1306,18 @@
       <option name="project" value="LOCAL" />
       <updated>1520969084905</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add command logic, need to test">
+      <created>1521042526394</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1521042526394</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14415000" />
+    <option name="totallyTimeSpent" value="14464000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
@@ -1360,7 +1359,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add gitignore, fix server" />
     <MESSAGE value="add .idea to work at 101" />
-    <option name="LAST_COMMIT_MESSAGE" value="add .idea to work at 101" />
+    <MESSAGE value="add command logic, need to test" />
+    <option name="LAST_COMMIT_MESSAGE" value="add command logic, need to test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
