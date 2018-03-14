@@ -9,5 +9,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Command {
 
-    String name();
+    String label();
+    String[] alias() default {};
 }

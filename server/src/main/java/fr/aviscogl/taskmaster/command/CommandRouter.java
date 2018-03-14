@@ -7,8 +7,9 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface CommandArg {
+public @interface CommandRouter {
 
     String regexPatternArguments();
-    String[] alias() default {};
+    boolean intoParams() default true;
+
 }

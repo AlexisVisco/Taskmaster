@@ -1,7 +1,5 @@
 package fr.aviscogl.taskmaster.log;
 
-import jdk.nashorn.internal.runtime.options.LoggingOption;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;

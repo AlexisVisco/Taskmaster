@@ -1,20 +1,12 @@
 package fr.aviscogl.taskmaster.command;
 
-public class CommandExecutor {
+import java.io.PrintWriter;
 
-    private String name;
-    private String args[];
+public abstract class CommandExecutor {
 
-    public CommandExecutor(String name, String[] args) {
-        this.name = name;
-        this.args = args;
-    }
+    public PrintWriter out;
+    public String name;
+    public String args[];
 
-    public String getName() {
-        return name;
-    }
-
-    public String[] getArgs() {
-        return args;
-    }
+    public abstract void defaultMethod();
 }
