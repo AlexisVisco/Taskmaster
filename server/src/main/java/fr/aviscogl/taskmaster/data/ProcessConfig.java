@@ -5,21 +5,21 @@ import java.util.HashMap;
 
 public class ProcessConfig {
 
-    String name;
-    String cmd;
-    int numprocs;
-    String umask;
-    String workingdir;
-    boolean autostart;
-    RestartType autorestart;
-    int[] exitcodes;
-    int startretries;
-    int starttime;
-    int stoptime;
-    String stdout;
-    String stderr;
-    String stopsignal;
-    HashMap<String, String> env;
+    public String name;
+    public String cmd;
+    public int numprocs;
+    public String umask;
+    public String workingdir;
+    public boolean autostart;
+    public RestartType autorestart;
+    public int[] exitcodes;
+    public int startretries;
+    public int starttime;
+    public int stoptime;
+    public String stdout;
+    public String stderr;
+    public String stopsignal;
+    public HashMap<String, String> env;
 
     @Override
     public String toString() {

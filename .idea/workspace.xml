@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26f1ccb9-9740-4abd-a9b8-566f2055e05c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_json_json_20160810.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/data/Programs.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/util/Jsoner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/server_main.iml" afterPath="$PROJECT_DIR$/.idea/modules/server_main.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/server_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/server_test.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/build.gradle" afterPath="$PROJECT_DIR$/server/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/Server.java" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/Server.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/data/ProcessConfig.java" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/data/ProcessConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/data/RestartType.java" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/data/RestartType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/data/Programs.java" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/data/Programs.java" />
     </list>
     <ignored path="$PROJECT_DIR$/client/.gradle/" />
     <ignored path="$PROJECT_DIR$/client/build/" />
@@ -77,7 +68,7 @@
     <splitter split-orientation="horizontal" split-proportion="0.6109064">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Server.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/Server.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="528">
@@ -93,7 +84,7 @@
             <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/data/Programs.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="95">
-                  <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+                  <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -127,47 +118,47 @@
                 <state relative-caret-position="0">
                   <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding>
-                    <marker date="1521366129000" expanded="true" signature="133681:133698" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="133681:133716" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="133681:133729" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="133681:133744" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="133779:136269" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="133792:136254" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="133846:134141" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="133865:134126" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="133928:134106" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="133968:134072" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="133989:134050" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="134191:134518" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="134210:134503" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="134305:134483" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="134345:134449" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="134366:134427" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="134569:134834" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="134588:134819" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="134621:134799" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="134661:134765" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="134682:134743" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="134877:135183" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="134896:135168" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="134970:135148" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="135010:135114" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="135031:135092" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="135234:135582" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="135253:135567" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="135330:135547" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="135370:135513" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="135391:135491" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="135617:135923" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="135636:135908" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="135710:135888" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="135750:135854" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="135771:135832" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="135975:136240" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="135994:136225" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="136027:136205" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="136067:136171" ph="..." />
-                    <marker date="1521366129000" expanded="true" signature="136088:136149" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="132365:132382" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="132365:132400" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="132365:132413" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="132365:132428" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="132463:134953" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="132476:134938" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="132530:132825" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="132549:132810" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="132612:132790" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="132652:132756" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="132673:132734" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="132875:133202" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="132894:133187" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="132989:133167" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="133029:133133" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="133050:133111" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="133253:133518" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="133272:133503" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="133305:133483" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="133345:133449" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="133366:133427" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="133561:133867" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="133580:133852" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="133654:133832" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="133694:133798" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="133715:133776" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="133918:134266" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="133937:134251" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="134014:134231" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="134054:134197" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="134075:134175" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="134301:134607" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="134320:134592" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="134394:134572" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="134434:134538" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="134455:134516" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="134659:134924" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="134678:134909" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="134711:134889" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="134751:134855" ph="..." />
+                    <marker date="1521366257000" expanded="true" signature="134772:134833" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -203,11 +194,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ProcessConfig.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="ProcessConfig.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/data/ProcessConfig.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="456">
-                  <caret line="24" column="18" lean-forward="false" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+                <state relative-caret-position="266">
+                  <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -907,13 +898,13 @@
         <option value="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/TestCommand.java" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/data/RestartType.java" />
-        <option value="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/data/ProcessConfig.java" />
-        <option value="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/data/Programs.java" />
         <option value="$PROJECT_DIR$/sample.yml" />
         <option value="$PROJECT_DIR$/server/build.gradle" />
         <option value="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/util/Jsoner.java" />
         <option value="$PROJECT_DIR$/sample.json" />
         <option value="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/Server.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/data/ProcessConfig.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/data/Programs.java" />
       </list>
     </option>
   </component>
@@ -1411,11 +1402,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521060166942</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add load configuration file">
+      <created>1521366178702</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1521366178702</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22890000" />
+    <option name="totallyTimeSpent" value="23021000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1428,7 +1426,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265097" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32753327" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32753327" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265097" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17155068" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1478,7 +1476,8 @@
     <MESSAGE value="add .idea to work at 101" />
     <MESSAGE value="add command logic, need to test" />
     <MESSAGE value="worked command framework, need more tests but that's fine" />
-    <option name="LAST_COMMIT_MESSAGE" value="worked command framework, need more tests but that's fine" />
+    <MESSAGE value="add load configuration file" />
+    <option name="LAST_COMMIT_MESSAGE" value="add load configuration file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1774,47 +1773,47 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1521366129000" expanded="true" signature="133681:133698" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="133681:133716" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="133681:133729" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="133681:133744" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="133779:136269" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="133792:136254" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="133846:134141" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="133865:134126" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="133928:134106" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="133968:134072" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="133989:134050" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="134191:134518" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="134210:134503" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="134305:134483" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="134345:134449" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="134366:134427" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="134569:134834" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="134588:134819" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="134621:134799" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="134661:134765" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="134682:134743" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="134877:135183" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="134896:135168" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="134970:135148" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="135010:135114" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="135031:135092" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="135234:135582" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="135253:135567" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="135330:135547" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="135370:135513" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="135391:135491" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="135617:135923" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="135636:135908" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="135710:135888" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="135750:135854" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="135771:135832" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="135975:136240" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="135994:136225" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="136027:136205" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="136067:136171" ph="..." />
-            <marker date="1521366129000" expanded="true" signature="136088:136149" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="132365:132382" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="132365:132400" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="132365:132413" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="132365:132428" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="132463:134953" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="132476:134938" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="132530:132825" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="132549:132810" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="132612:132790" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="132652:132756" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="132673:132734" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="132875:133202" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="132894:133187" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="132989:133167" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="133029:133133" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="133050:133111" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="133253:133518" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="133272:133503" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="133305:133483" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="133345:133449" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="133366:133427" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="133561:133867" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="133580:133852" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="133654:133832" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="133694:133798" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="133715:133776" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="133918:134266" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="133937:134251" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="134014:134231" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="134054:134197" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="134075:134175" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="134301:134607" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="134320:134592" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="134394:134572" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="134434:134538" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="134455:134516" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="134659:134924" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="134678:134909" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="134711:134889" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="134751:134855" ph="..." />
+            <marker date="1521366257000" expanded="true" signature="134772:134833" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1823,14 +1822,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="3" column="10" lean-forward="false" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/data/Programs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -1859,20 +1850,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/data/ProcessConfig.java">
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" column="18" lean-forward="false" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+        <state relative-caret-position="528">
+          <caret line="36" column="27" lean-forward="false" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/Server.java">
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/data/Programs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="36" column="27" lean-forward="false" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+        <state relative-caret-position="95">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/data/ProcessConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
