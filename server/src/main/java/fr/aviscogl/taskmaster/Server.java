@@ -19,20 +19,6 @@ public class Server {
     public static int CLIENT_NUMBER = 0;
     public static Programs programs;
 
-//    public static void main(String[] args)
-//    {
-//        Pattern p = Pattern.compile("^hello \\d+ \".+\"");
-//        String test = "hello 34 \"hey\"";
-//        Matcher m = p.matcher(test);
-//        if (m.find()) {
-//            for (int i = 1; i < m.groupCount(); i++) {
-//                System.out.println(m.group(i));
-//            }
-//        }
-//        System.out.println(test.split(" ")[0]);
-//    }
-
-
     public static void main(String[] args) throws Exception {
         System.out.println(Arrays.toString(args));
         System.out.println("The server is running !");
