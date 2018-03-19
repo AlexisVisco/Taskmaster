@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class ProcessConfig {
 
@@ -16,36 +17,21 @@ public class ProcessConfig {
     public RestartType autorestart;
     public int[] exitcodes;
     public int startretries;
-    public int starttime;
-    public int stoptime;
+    public long starttime;
+    public long stoptime;
     public String stdout;
     public String stderr;
     public String stopsignal;
     public HashMap<String, String> env;
 
-    @Override
-    public String toString() {
-        return "ProcessConfig{" +
-                "name='" + name + '\'' +
-                ", cmd='" + cmd + '\'' +
-                ", numprocs=" + numprocs +
-                ", umask='" + umask + '\'' +
-                ", workingdir='" + workingdir + '\'' +
-                ", autostart=" + autostart +
-                ", autorestart=" + autorestart +
-                ", exitcodes=" + Arrays.toString(exitcodes) +
-                ", startretries=" + startretries +
-                ", starttime=" + starttime +
-                ", stoptime=" + stoptime +
-                ", stdout='" + stdout + '\'' +
-                ", stderr='" + stderr + '\'' +
-                ", stopsignal='" + stopsignal + '\'' +
-                ", env=" + env +
-                '}';
-    }
+    public Optional<ProcessBuilder> constructProcessBuilder() {
 
-    public ProcessBuilder constructProcessBuilder() {
         ProcessBuilder pb = new ProcessBuilder();
+
+        if (cmd == null)
+            return Optional.empty();
+
+        pb.command(cmd.split(" "));
         if (this.workingdir != null) {
             File wd = new File(this.workingdir);
             if (wd.exists() && wd.isDirectory())
@@ -61,6 +47,7 @@ public class ProcessConfig {
             pb.redirectError(new File(this.stderr));
         if (this.stdout != null)
             pb.redirectOutput(new File(this.stdout));
-        return pb;
+
+        return Optional.ofNullable(pb);
     }
 }
