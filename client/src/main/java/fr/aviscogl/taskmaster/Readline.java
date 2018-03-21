@@ -11,7 +11,7 @@ import java.util.function.Function;
 
 class Readline {
 
-    private final static String PROMPT = String.format("%sTaskmaster> %s", Color.BLUE, Color.RESET);
+    private final static String PROMPT = String.format("%sTaskmaster> %s", Color.BLUE_BOLD, Color.RESET);
     private Client client;
 
     Readline(Client client) {

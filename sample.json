@@ -1,10 +1,10 @@
 {
   "programs": [
     {
-      "name": "nginx",
-      "autorestart": "unexpected",
+      "name": "ls",
+      "autorestart": "never",
       "autostart": true,
-      "cmd": "/usr/local/bin/nginx -c /etc/nginx/test.conf",
+      "cmd": "ls -aRg /dfgh",
       "env": {
         "ANSWER": 42,
         "STARTED_BY": "taskmaster"
@@ -13,7 +13,7 @@
         0,
         2
       ],
-      "numprocs": 1,
+      "numprocs": 2,
       "startretries": 3,
       "starttime": 5,
       "stderr": "/tmp/nginx.stderr",
@@ -21,22 +21,6 @@
       "stopsignal": "TERM",
       "stoptime": 10,
       "umask": 18,
-      "workingdir": "/tmp"
-    },
-    {
-      "name": "vogsphere",
-      "autorestart": "unexpected",
-      "autostart": true,
-      "cmd": "/usr/local/bin/vogsphere-worker --no-prefork",
-      "exitcodes": [0],
-      "numprocs": 8,
-      "startretries": 3,
-      "starttime": 5,
-      "stderr": "/tmp/vgsworker.stderr",
-      "stdout": "/tmp/vgsworker.stdout",
-      "stopsignal": "USR1",
-      "stoptime": 10,
-      "umask": 63,
       "workingdir": "/tmp"
     }
   ]

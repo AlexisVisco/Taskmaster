@@ -1,12 +1,14 @@
 package fr.aviscogl.taskmaster.command;
 
 import java.io.PrintWriter;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class CommandHandler {
 
@@ -37,21 +39,20 @@ public class CommandHandler {
             CommandExecutor commandExecutor = cl.newInstance();
             initCommandExecutor(out, split, commandExecutor);
             String fullCommandAfterLabel = reconstructStringAfterLabel(split);
-
-            for (Method method : cl.getMethods()) {
-                CommandRouter[] annotations = method.getDeclaredAnnotationsByType(CommandRouter.class);
-                if (annotations.length > 0) {
-                    CommandRouter router = annotations[0];
-                    Pattern pattern = Pattern.compile(router.regexMatcher());
+            Iterable<? extends Method> methodsByPriority = getMethodsByPriority(cl);
+            for (Method method : methodsByPriority) {
+                Optional<CommandRouter> an = getFirstAnnotation(method, CommandRouter.class);
+                if (an.isPresent()) {
+                    CommandRouter router = an.get();
+                    Pattern pattern = Pattern.compile(router.regex());
                     Matcher matcher = pattern.matcher(fullCommandAfterLabel);
                     List<String> params = new ArrayList<>();
                     if (matcher.matches()) {
                         if (!router.intoParams() && method.getParameterCount() == 0) {
                             method.invoke(commandExecutor);
-                            return ;
+                            return;
                         }
-                        else
-                            if (injectParameters(commandExecutor, method, matcher, params)) return;
+                        else if (injectParameters(commandExecutor, method, matcher, params)) return;
                     }
                 }
             }
@@ -61,6 +62,27 @@ public class CommandHandler {
         }
     }
 
+    private static Iterable<? extends Method> getMethodsByPriority(Class<? extends CommandExecutor> cl) {
+        List<Method> collect = Arrays.stream(cl.getMethods())
+                .filter(a -> getFirstAnnotation(a, CommandRouter.class).isPresent())
+                .collect(Collectors.toList());
+        collect.sort((a, b) -> {
+            Optional<CommandRouter> c1 = getFirstAnnotation(a, CommandRouter.class);
+            Optional<CommandRouter> c2 = getFirstAnnotation(b, CommandRouter.class);
+            if (c1.isPresent() && c2.isPresent())
+                return c1.get().priority() < c2.get().priority() ? 1 : -1;
+            return -1;
+        });
+        return collect;
+    }
+
+    private static <T extends Annotation> Optional<T> getFirstAnnotation(Method m, Class<T> cl) {
+        T[] annotations = m.getDeclaredAnnotationsByType(cl);
+        if (annotations.length >= 1)
+            return Optional.of(annotations[0]);
+        return Optional.empty();
+    }
+
     private static void initCommandExecutor(PrintWriter out, String[] split, CommandExecutor commandExecutor) {
         commandExecutor.out = out;
         commandExecutor.name = split[0];
@@ -68,7 +90,8 @@ public class CommandHandler {
     }
 
     private static boolean injectParameters(CommandExecutor commandExecutor, Method method,
-                                            Matcher matcher, List<String> params) throws IllegalAccessException, InvocationTargetException {
+                                            Matcher matcher, List<String> params)
+            throws IllegalAccessException, InvocationTargetException {
         for (int i = 1; i <= matcher.groupCount(); i++)
             params.add(matcher.group(i));
         if (method.getParameterCount() == params.size()) {
@@ -90,7 +113,8 @@ public class CommandHandler {
             for (int i = 1; i < split.length; i++)
                 sb.append(split[i]).append(i == split.length - 1 ? "" : " ");
             return sb.toString();
-        } else return "";
+        }
+        else return "";
     }
 
     private static String[] constructArrayArgs(String[] split) {
@@ -102,8 +126,8 @@ public class CommandHandler {
     }
 
     private static Object toObject(Class clazz, String value) {
-        if (Boolean.class == clazz || clazz == boolean.class)   return Boolean.parseBoolean(value);
-        if (Byte.class == clazz || clazz ==  byte.class) return Byte.parseByte(value);
+        if (Boolean.class == clazz || clazz == boolean.class) return Boolean.parseBoolean(value);
+        if (Byte.class == clazz || clazz == byte.class) return Byte.parseByte(value);
         if (Short.class == clazz || clazz == short.class) return Short.parseShort(value);
         if (Integer.class == clazz || clazz == int.class) return Integer.parseInt(value);
         if (Long.class == clazz || clazz == long.class) return Long.parseLong(value);

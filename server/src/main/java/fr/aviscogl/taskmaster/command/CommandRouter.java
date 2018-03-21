@@ -9,7 +9,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CommandRouter {
 
-    String regexMatcher();
+    String regex();
+    int priority() default 0;
     boolean intoParams() default true;
 
 }

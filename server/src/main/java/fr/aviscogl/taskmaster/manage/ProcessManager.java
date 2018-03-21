@@ -4,9 +4,6 @@ import fr.aviscogl.taskmaster.data.ProcessConfig;
 import fr.aviscogl.taskmaster.data.ProcessStatus;
 import fr.aviscogl.taskmaster.data.RestartType;
 import fr.aviscogl.taskmaster.log.Logger;
-
-import javax.security.auth.login.LoginException;
-import javax.swing.text.html.Option;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,7 +12,6 @@ import java.util.HashMap;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
@@ -55,7 +51,7 @@ public class ProcessManager {
     public boolean sendSignal(String signal, int pid) {
         final long start = System.currentTimeMillis();
         try {
-            final ProcessBuilder pb = new ProcessBuilder("stop", String.format("-%s", signal, Integer.toString(pid)));
+            final ProcessBuilder pb = new ProcessBuilder("stopProcess", String.format("-%s", signal, Integer.toString(pid)));
             pb.redirectErrorStream(true);
             pb.start();
             return true;
@@ -67,7 +63,7 @@ public class ProcessManager {
     public boolean killProcess(int i) {
         SelfProcess selfProcess = process.get(i);
         if (selfProcess != null)
-            selfProcess.stop();
+            selfProcess.stopProcess();
         Logger.log(Level.WARNING, "No process process %s%i.", config.name, i);
         return false;
     }
@@ -76,7 +72,7 @@ public class ProcessManager {
         if (started) {
             process.forEach((k, v) -> {
                 Logger.log(Level.INFO, "Terminating process %s.", v.name);
-                v.stop();
+                v.stopProcess();
             });
             return true;
         }
@@ -100,7 +96,7 @@ public class ProcessManager {
         return true;
     }
 
-    public final class SelfProcess {
+    public final class SelfProcess extends Thread {
 
         private String name;
         private ProcessBuilder pb;
@@ -114,8 +110,10 @@ public class ProcessManager {
             this.name = config.name + "_" + id;
         }
 
-        private void start() {
+        @Override
+        public void run() {
             try {
+                Logger.log("Process " + name + " started !");
                 Optional<String> umask = getUmask();
                 if (!umask.isPresent()) {
                     restart();
@@ -123,7 +121,7 @@ public class ProcessManager {
                 }
                 setUmask(config.umask);
                 this.timeAtLaunch = System.currentTimeMillis();
-                this.status = ProcessStatus.LAUNCHED;
+                this.status = ProcessStatus.LAUNCHING;
                 this.process = pb.start();
                 this.onExitProcess();
                 setUmask(umask.get());
@@ -137,14 +135,16 @@ public class ProcessManager {
             try {
                 onExit.get();
                 onExit.thenAccept((p) -> {
+                    Logger.log("Process " + name + " exited with exitvalue " + p.exitValue());
                     updateStatus();
                     if (!restart() && status == ProcessStatus.LAUNCHED)
                     {
                         status = ProcessStatus.TERMINATED;
                         if (config.autorestart == RestartType.always)
-                            this.start();
-                        else if (config.autorestart == RestartType.unexpected && !isNornalExitCode(p.exitValue()))
-                            this.start();
+                            this.run();
+                        else if (config.autorestart == RestartType.unexpected && !isNornalExitCode(p.exitValue())) {
+                            this.run();
+                        }
                     }
                     else
                         status = ProcessStatus.TERMINATED;
@@ -155,27 +155,31 @@ public class ProcessManager {
         }
 
         private boolean restart() {
-            if (status == ProcessStatus.LAUNCHING && config.startretries < startRetries)
+            System.out.println(status == ProcessStatus.LAUNCHING);
+            System.out.println(config.startretries > startRetries);
+            if (status == ProcessStatus.LAUNCHING && config.startretries > startRetries)
             {
+                System.out.println("HEYYY ?");
+                Logger.log("re-launching process, remaining %i", config.startretries - startRetries);
                 status = ProcessStatus.TERMINATED;
                 startRetries++;
-                this.start();
+                this.run();
                 return true;
             }
             return false;
         }
 
-        private void stop() {
+        private void stopProcess() {
             if (process.isAlive()) {
                 status = ProcessStatus.TERMINATING;
                 sendSignal(config.stopsignal, Math.toIntExact(process.pid()));
                 Executors.newScheduledThreadPool(1).schedule(() -> {
                     process.destroyForcibly();
-                    Logger.log(Level.WARNING, "Forced to stop process %s.", this.name);
+                    Logger.log(Level.WARNING, "Forced to stopProcess process %s.", this.name);
                 }, config.stoptime, TimeUnit.SECONDS);
             }
             else {
-                Logger.logErr("Cant stop process %s because is already stopped.", this.name);
+                Logger.logErr("Cant stopProcess process %s because is already stopped.", this.name);
             }
         }
 
@@ -183,12 +187,11 @@ public class ProcessManager {
             return Arrays.stream(config.exitcodes).anyMatch(e -> e == exitCode);
         }
 
-        private boolean updateStatus() {
+        private void updateStatus() {
             boolean b = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - this.timeAtLaunch)
                     >= config.starttime;
             if (b && this.status == ProcessStatus.LAUNCHING)
                 status = ProcessStatus.LAUNCHED;
-            return b;
         }
 
         private Optional<Long> getPid() {
