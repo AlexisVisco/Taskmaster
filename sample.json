@@ -4,11 +4,30 @@
       "name": "ls",
       "autorestart": "never",
       "autostart": true,
-      "cmd": "ls -aRg /dfgh",
+      "cmd": "ls -aRg /",
       "env": {
         "ANSWER": 42,
         "STARTED_BY": "taskmaster"
       },
+      "exitcodes": [
+        0,
+        1
+      ],
+      "numprocs": 3,
+      "startretries": 3,
+      "starttime": 5,
+      "stderr": "/tmp/nginx.stderr",
+      "stdout": "/tmp/nginx.stdout",
+      "stopsignal": "TERM",
+      "stoptime": 10,
+      "umask": 18,
+      "workingdir": "/tmp"
+    },
+    {
+      "name": "cat",
+      "autorestart": "never",
+      "autostart": true,
+      "cmd": "cat *",
       "exitcodes": [
         0,
         2
@@ -16,8 +35,6 @@
       "numprocs": 2,
       "startretries": 3,
       "starttime": 5,
-      "stderr": "/tmp/nginx.stderr",
-      "stdout": "/tmp/nginx.stdout",
       "stopsignal": "TERM",
       "stoptime": 10,
       "umask": 18,

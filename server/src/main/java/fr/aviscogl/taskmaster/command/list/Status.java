@@ -1,15 +1,17 @@
 package fr.aviscogl.taskmaster.command.list;
 
+import fr.aviscogl.taskmaster.Server;
 import fr.aviscogl.taskmaster.command.Command;
 import fr.aviscogl.taskmaster.command.CommandExecutor;
 import fr.aviscogl.taskmaster.command.CommandRouter;
+import fr.aviscogl.taskmaster.util.ProcessUtil;
 
 @Command(alias = {"stats", "st"}, label = "status")
 public class Status extends CommandExecutor {
 
     @CommandRouter(regex = "all", priority = 3)
     public void all() {
-        out.println("all");
+        out.println(ProcessUtil.stringifyInfo(Server.process.values()));
         end();
     }
 

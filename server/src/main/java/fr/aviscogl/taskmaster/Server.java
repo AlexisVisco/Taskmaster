@@ -2,10 +2,9 @@ package fr.aviscogl.taskmaster;
 
 import fr.aviscogl.taskmaster.command.CommandHandler;
 import fr.aviscogl.taskmaster.command.list.Status;
-import fr.aviscogl.taskmaster.data.ProcessConfig;
 import fr.aviscogl.taskmaster.data.Programs;
 import fr.aviscogl.taskmaster.log.Logger;
-import fr.aviscogl.taskmaster.manage.ProcessManager;
+import fr.aviscogl.taskmaster.manage.ProcessHandler;
 import fr.aviscogl.taskmaster.manage.RequestHandler;
 import fr.aviscogl.taskmaster.util.Jsoner;
 
@@ -17,9 +16,9 @@ import java.util.Optional;
 
 public class Server {
 
-    public static int PORT = 9898;
-    public static int CLIENT_NUMBER = 0;
-    public static HashMap<String, ProcessManager> process = new HashMap<>();
+    private static int PORT = 9898;
+    private static int CLIENT_NUMBER = 0;
+    public static HashMap<String, ProcessHandler> process = new HashMap<>();
 
     public static void main(String[] args) throws Exception {
         System.out.println(Arrays.toString(args));
@@ -47,7 +46,7 @@ public class Server {
             Logger.logErr("No configuration file loaded !");
             System.exit(0);
         }
-        programs.getPrograms().forEach(e -> process.put(e.name, new ProcessManager(e)));
+        programs.getPrograms().forEach(e -> process.put(e.name, new ProcessHandler(e)));
     }
 
 
