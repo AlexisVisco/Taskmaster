@@ -54,7 +54,7 @@ public class Client {
     void connectToServer() throws IOException {
 
         socket = new Socket(host, port);
-        in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        in = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF8"));
         out = new PrintWriter(socket.getOutputStream(), true);
 
         System.out.println("-----------------------------------------------------------------");

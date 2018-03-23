@@ -80,7 +80,7 @@ public class ProcessEntity implements IProcessEntity, Runnable {
     }
 
     private boolean restartOnFail() {
-        if (status == ProcessStatus.LAUNCHING && parent.config.startretries > startRetries)
+        if (status == ProcessStatus.LAUNCHING && parent.config.startretries >= startRetries)
         {
             Logger.log("Re-launching process, remaining %d", parent.config.startretries - startRetries);
             status = ProcessStatus.TERMINATED;

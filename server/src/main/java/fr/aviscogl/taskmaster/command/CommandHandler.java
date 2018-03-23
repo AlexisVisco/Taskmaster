@@ -1,5 +1,6 @@
 package fr.aviscogl.taskmaster.command;
 
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
@@ -26,7 +27,6 @@ public class CommandHandler {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(commands);
     }
 
     public static void execute(String command, PrintWriter out) {

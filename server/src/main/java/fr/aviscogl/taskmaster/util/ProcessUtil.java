@@ -1,6 +1,7 @@
 package fr.aviscogl.taskmaster.util;
 
 import fr.aviscogl.taskmaster.log.Logger;
+import fr.aviscogl.taskmaster.manage.ProcessEntity;
 import fr.aviscogl.taskmaster.manage.ProcessHandler;
 
 import java.io.BufferedReader;
@@ -45,6 +46,22 @@ public class ProcessUtil {
         processHandlerList.forEach(e -> {
             List<String> colums = Arrays.asList(e.getConfig().name, e.getStringState(),
                     Integer.toString(e.getConfig().numprocs), Long.toString(e.getAliveProcesses()), e.getConfig().cmd);
+            rows.add(colums);
+        });
+        return new TableGenerator().generateTable(headers, rows);
+    }
+
+    public static String stringifyInfoOf(ProcessHandler e) {
+        List<String> headers = Arrays.asList("Name", "Alive", "Status", "Uptime", "Sstarted", "Pid");
+        List<List<String>> rows = new ArrayList<>();
+        e.processes.forEach((i, ent) -> {
+            List<String> colums = Arrays.asList(
+                    ent.getCurrentName(),
+                    ent.isAlive() ? Color.GREEN_BOLD + "Yes" + Color.RESET : Color.RED_BOLD + "No" + Color.RESET,
+                    ent.getStatus().getState(),
+                    ent.getStringDuration(),
+                    Long.toString(ent.getAmountRestart()) + " time(s)",
+                    ent.getPid().isPresent() ? Long.toString(ent.getPid().get()) : "No pid");
             rows.add(colums);
         });
         return new TableGenerator().generateTable(headers, rows);

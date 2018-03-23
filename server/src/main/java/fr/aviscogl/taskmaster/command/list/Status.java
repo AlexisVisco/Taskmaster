@@ -4,6 +4,8 @@ import fr.aviscogl.taskmaster.Server;
 import fr.aviscogl.taskmaster.command.Command;
 import fr.aviscogl.taskmaster.command.CommandExecutor;
 import fr.aviscogl.taskmaster.command.CommandRouter;
+import fr.aviscogl.taskmaster.manage.ProcessEntity;
+import fr.aviscogl.taskmaster.manage.ProcessHandler;
 import fr.aviscogl.taskmaster.util.ProcessUtil;
 
 @Command(alias = {"stats", "st"}, label = "status")
@@ -29,7 +31,11 @@ public class Status extends CommandExecutor {
 
     @CommandRouter(regex = "([a-zA-Z0-9]+)")
     public void statusName(String name) {
-        out.println("status name " + name);
+        ProcessHandler processHandler = Server.process.get(name);
+        if (processHandler != null)
+            out.println(ProcessUtil.stringifyInfoOf(processHandler));
+        else
+            out.println("No process specified with this name");
         end();
     }
 

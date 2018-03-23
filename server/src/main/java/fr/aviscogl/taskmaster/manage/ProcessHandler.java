@@ -13,8 +13,9 @@ import java.util.logging.Level;
 public class ProcessHandler {
 
     ProcessConfig config;
-    private HashMap<Integer, ProcessEntity> processes = new HashMap<>();
+    public HashMap<Integer, ProcessEntity> processes = new HashMap<>();
     private boolean started = false;
+    private long startedAt;
     final ExecutorService executor;
 
     public ProcessHandler(ProcessConfig config) {
@@ -45,6 +46,7 @@ public class ProcessHandler {
 
     public boolean startAllProcesses() {
         this.started = true;
+        this.startedAt = System.currentTimeMillis();
         Optional<ProcessBuilder> pb = config.constructProcessBuilder();
         if (!pb.isPresent()) {
             Logger.logErr("Cannot launch processes %s because command is invalid.", config.name);
@@ -65,10 +67,10 @@ public class ProcessHandler {
 
     public String getStringState() {
         int i = (int)((getAliveProcesses() / config.numprocs) * 3);
-        if (i == 1) return  "danger" ;
-        if (i == 2) return  "warning" ;
-        if (i == 3) return "like a charm" ;
-        else return  "critical" ;
+        if (i == 1) return  Color.RED_BOLD + "danger :x" + Color.RESET ;
+        if (i == 2) return  Color.YELLOW_BOLD + "warning :o" + Color.RESET;
+        if (i == 3) return Color.GREEN_BOLD_BRIGHT + "like a charm c:" + Color.RESET;
+        else return   Color.WHITE_BRIGHT + Color.RED_BACKGROUND  + "critical :z" + Color.RESET;
     }
 
     public Optional<IProcessEntity> getProcessEntity(int p) {
