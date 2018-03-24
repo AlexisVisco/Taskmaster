@@ -1,6 +1,8 @@
 package fr.aviscogl.taskmaster;
 
 import fr.aviscogl.taskmaster.command.CommandHandler;
+import fr.aviscogl.taskmaster.command.list.Config;
+import fr.aviscogl.taskmaster.command.list.Start;
 import fr.aviscogl.taskmaster.command.list.Status;
 import fr.aviscogl.taskmaster.data.Programs;
 import fr.aviscogl.taskmaster.log.Logger;
@@ -11,17 +13,18 @@ import fr.aviscogl.taskmaster.util.Jsoner;
 
 import java.io.*;
 import java.net.ServerSocket;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Optional;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Server {
 
+    public static String END = Color.YELLOW_BRIGHT + "----------------{ " + Color.RESET + Color.GREEN +
+            "TaskMaster" + Color.RESET + Color.YELLOW_BRIGHT + " }----------------" + Color.RESET;
     private static int PORT = 9898;
     private static int CLIENT_NUMBER = 0;
-    public static HashMap<String, ProcessHandler> process = new HashMap<>();
+    public static HashMap<String, ProcessHandler> processes = new HashMap<>();
+    public static Logger global = new Logger("taskmaster", "taskmaster.log");
+    public static Programs programs = null;
 
     public static void main(String[] args) throws Exception {
         System.out.println("The server is running !");
@@ -34,20 +37,23 @@ public class Server {
     }
 
     private static void registerCommands() {
+        Server.global.log("Registering all commands.");
         CommandHandler.registerCommand(Status.class);
+        CommandHandler.registerCommand(Start.class);
+        CommandHandler.registerCommand(Config.class);
     }
 
     private static void initPrograms() {
-        Programs programs = null;
+        Server.global.log("Retrieving configuration file at %s.", new File("sample.json").getAbsolutePath());
         Optional<Programs> jsonFromFile = Jsoner.getJsonFromFile(new File("sample.json"), Programs.class);
         if (jsonFromFile.isPresent())
             programs = jsonFromFile.get();
         else
         {
-            Logger.logErr("No configuration file loaded !");
+            Server.global.logErr("No configuration file loaded !");
             System.exit(0);
         }
-        programs.getPrograms().forEach(e -> process.put(e.name, new ProcessHandler(e)));
+        programs.getPrograms().forEach(e -> processes.put(e.name, new ProcessHandler(e)));
     }
 
 

@@ -5,9 +5,7 @@ import jline.console.ConsoleReader;
 import jline.console.completer.Completer;
 
 import java.io.IOException;
-import java.util.function.BiFunction;
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 class Readline {
 
@@ -41,12 +39,12 @@ class Readline {
             String line;
             while ((line = console.readLine()) != null) {
                 if (line.equals("exit"))
-                    client.exitSocket("Manual exit");
+                    client.reconnect("Manual exit");
                 else
                     System.out.print(client.getResponseFromCommand(line));
             }
         } catch (IOException e) {
-            client.exitSocket("Readline didn't work well...");
+            client.reconnect("Readline didn't work well...");
         } finally {
             try {
                 TerminalFactory.get().restore();

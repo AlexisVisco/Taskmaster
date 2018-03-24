@@ -18,4 +18,8 @@ public enum ProcessStatus {
     public String getState() {
         return state;
     }
+
+    public boolean canAccessInfo() {
+        return this == LAUNCHED || this == LAUNCHING || this == TERMINATING;
+    }
 }

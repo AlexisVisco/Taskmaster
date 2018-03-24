@@ -1,10 +1,7 @@
 package fr.aviscogl.taskmaster.data;
 
 import java.io.File;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class ProcessConfig {
 
@@ -15,7 +12,7 @@ public class ProcessConfig {
     public String workingdir;
     public boolean autostart;
     public RestartType autorestart;
-    public int[] exitcodes;
+    public List<Integer> exitcodes;
     public int startretries;
     public long starttime;
     public long stoptime;

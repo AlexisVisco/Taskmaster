@@ -1,5 +1,7 @@
 package fr.aviscogl.taskmaster.command;
 
+import fr.aviscogl.taskmaster.Server;
+
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.lang.annotation.Annotation;
@@ -33,8 +35,10 @@ public class CommandHandler {
         String[] split = command.split(" ");
         try {
             Class<? extends CommandExecutor> cl = commands.get(split[0]);
-            if (cl == null)
-                return;
+            if (cl == null) {
+                out.println(Server.END);
+                return ;
+            }
 
             CommandExecutor commandExecutor = cl.newInstance();
             initCommandExecutor(out, split, commandExecutor);

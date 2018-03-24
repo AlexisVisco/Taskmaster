@@ -87,4 +87,12 @@ public class Color {
         }
         return s;
     }
+
+    public static boolean hasColor(String s) {
+        return findColor.matcher(s).find();
+    }
+
+    public static String colorify(String origin) {
+        return hasColor(origin) ? origin : origin.replaceAll("(\\d+)", Color.CYAN + "$1" + Color.RESET);
+    }
 }

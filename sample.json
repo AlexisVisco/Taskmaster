@@ -4,18 +4,19 @@
       "name": "ls",
       "autorestart": "never",
       "autostart": true,
-      "cmd": "ls -aRg /",
+      "cmd": "ls -aRg /Users/alexis/",
       "env": {
         "ANSWER": 42,
-        "STARTED_BY": "taskmaster"
+        "STARTED_BY": "taskmaster of doom c2"
       },
       "exitcodes": [
         0,
+        3,
         1
       ],
       "numprocs": 3,
       "startretries": 3,
-      "starttime": 15,
+      "starttime": 5,
       "stderr": "/tmp/nginx.stderr",
       "stdout": "/tmp/nginx.stdout",
       "stopsignal": "TERM",
@@ -24,17 +25,23 @@
       "workingdir": "/tmp"
     },
     {
-      "name": "cat",
+      "name": "ls2",
       "autorestart": "never",
       "autostart": true,
-      "cmd": "cat *",
+      "cmd": "ls -aRg /Users/alexis/",
+      "env": {
+        "STARTED_BY": "taskmaster of doom c2"
+      },
       "exitcodes": [
         0,
-        2
+        3,
+        1
       ],
-      "numprocs": 2,
+      "numprocs": 3,
       "startretries": 3,
       "starttime": 5,
+      "stderr": "/tmp/nginx.stderr",
+      "stdout": "/tmp/nginx.stdout",
       "stopsignal": "TERM",
       "stoptime": 10,
       "umask": 18,

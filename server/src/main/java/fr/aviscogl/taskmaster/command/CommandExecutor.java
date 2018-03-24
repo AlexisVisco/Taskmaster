@@ -1,5 +1,6 @@
 package fr.aviscogl.taskmaster.command;
 
+import fr.aviscogl.taskmaster.Server;
 import fr.aviscogl.taskmaster.util.Color;
 
 import java.io.PrintWriter;
@@ -34,6 +35,6 @@ public abstract class CommandExecutor {
     }
 
     public void end() {
-        out.println("{END}");
+        out.println(Server.END);
     }
 }

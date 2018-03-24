@@ -5,11 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.regex.Pattern;
 
 public class Client {
 
-    private final static String END_RESPONSE = "{END}";
+    private final static String END =  Color.YELLOW_BRIGHT + "----------------{ " + Color.RESET + Color.GREEN +
+            "TaskMaster" + Color.RESET + Color.YELLOW_BRIGHT + " }----------------" + Color.RESET;
 
 
     private BufferedReader in;
@@ -30,36 +30,49 @@ public class Client {
         try {
             String res;
             while ((res = in.readLine()) != null) {
-                if (res.equals(END_RESPONSE))
+                if (res.equals(END))
                     break;
                 lineFromServer.append(res).append('\n');
             }
         } catch (IOException ex) {
-            exitSocket(ex.getMessage());
+            reconnect(ex.getMessage());
         }
         return lineFromServer.toString();
     }
 
-    void exitSocket(String message) {
-        try {
-            socket.close();
-            System.out.println("End connection with server due to `" + message + "`.");
+    void reconnect(String message) {
+        if (message.contains("exit")) {
+            try {
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             System.exit(0);
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-
+        else {
+            System.out.println("Trying to reconnect... (" + message + ")");
+            connectToServer();
+        }
     }
 
-    void connectToServer() throws IOException {
+    void connectToServer() {
+        try {
+            socket = new Socket(host, port);
+            in = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF8"));
+            out = new PrintWriter(socket.getOutputStream(), true);
 
-        socket = new Socket(host, port);
-        in = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF8"));
-        out = new PrintWriter(socket.getOutputStream(), true);
-
-        System.out.println("-----------------------------------------------------------------");
-        System.out.println(in.readLine());
-        System.out.println("-----------------------------------------------------------------\n");
+            System.out.println("-----------------------------------------------------------------");
+            System.out.println(in.readLine());
+            System.out.println("-----------------------------------------------------------------\n");
+            Main.first = false;
+        } catch (Exception e) {
+            if (Main.first) {
+                System.out.println("Impossible to connect at " + host + ":" + port + ".");
+                System.exit(1);
+            }
+            else
+                System.out.println("Connection failed, press a key to try reconnection !");
+        }
     }
 
 

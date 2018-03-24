@@ -1,33 +1,48 @@
 package fr.aviscogl.taskmaster.log;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.*;
 
 public class Logger {
-    public static void log(Level level, String message, Object... o) {
-        SimpleDateFormat dt = new SimpleDateFormat("yyyy/mm/dd hh:mm:ss");
-        String date = dt.format(new Date());
-        System.out.println(String.format("(%s) [%s] %s", date, level.getName(), String.format(message, o)));
+
+    private java.util.logging.Logger logger;
+
+    public Logger(String prefix, String where) {
+        prefix = prefix.replaceAll(" ", "_");
+        where = where.replaceAll(" ", "_");
+        logger = java.util.logging.Logger.getLogger(prefix);
+        File file = new File(System.getProperty("user.home") + "/.taskmaster/" + where);
+        new File(file.getParent()).mkdirs();
+        Handler handler = null;
+        try {
+            handler = new FileHandler(file.getAbsolutePath(), 1000000 * 25, 10, true);
+            handler.setFormatter(new LogFormatter());
+            logger.addHandler(handler);
+        } catch (IOException e) { e.printStackTrace(); }
     }
 
-    public static void log(Level level, String message) {
-        log(level, message, (Object)null);
+    public void log(Level level, String message, Object... o) {
+        logger.log(level, String.format("%s", String.format(message, o)));
     }
 
-    public static void log(String message) {
+    public void log(Level level, String message) {
+        log(level, message, (Object) null);
+    }
+
+    public void log(String message) {
         log(Level.INFO, message);
     }
 
-    public static void log(String message, Object... o) {
+    public void log(String message, Object... o) {
         log(Level.INFO, message, o);
     }
 
-    public static void logErr(String message) {
-        log(Level.SEVERE, message, (Object)null);
+    public void logErr(String message) {
+        log(Level.SEVERE, message, (Object) null);
     }
 
-    public static void logErr(String message, Object... o) {
+    public void logErr(String message, Object... o) {
         log(Level.SEVERE, message, o);
     }
 }

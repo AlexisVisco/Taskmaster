@@ -1,5 +1,6 @@
 package fr.aviscogl.taskmaster.manage;
 
+import fr.aviscogl.taskmaster.Server;
 import fr.aviscogl.taskmaster.command.CommandHandler;
 import fr.aviscogl.taskmaster.log.Logger;
 
@@ -9,15 +10,13 @@ import java.util.logging.Level;
 
 public class RequestHandler extends Thread {
 
-        private final static String END_RESPONSE = "{END}";
-
         private Socket socket;
         private int clientNumber;
 
         public RequestHandler(Socket socket, int clientNumber) {
             this.socket = socket;
             this.clientNumber = clientNumber;
-            Logger.log("New connection with client #" + clientNumber + " at "  + socket);
+            Server.global.log("New connection with client #%d.", clientNumber);
         }
 
         public void run() {
@@ -29,26 +28,26 @@ public class RequestHandler extends Thread {
 
                 while (true) {
                     String input = in.readLine();
-                    Logger.log("Client #" + clientNumber + " send: " + input);
+                    Server.global.log("Client #%d send: %s.", clientNumber, input);
                     if (input != null)
                         CommandHandler.execute(input, out);
                     else
                         break;
                 }
             } catch (IOException e) {
-                Logger.logErr("Error handling client # " + clientNumber + ": " + e);
+                Server.global.logErr("Error handling client #%d : %s" + clientNumber, e.getCause());
             } finally {
                 try {
                     socket.close();
                 } catch (IOException e) {
-                    Logger.log(Level.WARNING, "Couldn't close a socket.. WTF ??");
+                    Server.global.log(Level.WARNING, "Couldn't close a socket.. WTF ??");
                 }
-                Logger.log("Connection with client # " + clientNumber + " closed");
+                Server.global.log("Connection with client # " + clientNumber + " closed");
             }
         }
 
         private void sendPacket(PrintWriter out, String packet) {
             out.println(packet);
-            out.println(END_RESPONSE);
+            out.println(Server.END);
         }
     }
