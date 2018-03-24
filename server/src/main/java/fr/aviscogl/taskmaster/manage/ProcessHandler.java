@@ -15,16 +15,16 @@ import java.util.logging.Level;
 public class ProcessHandler {
 
     final ExecutorService executor;
-    final Logger          out;
-          ProcessConfig   config;
+    final Logger out;
+    ProcessConfig config;
 
-    public  HashMap<Integer, ProcessEntity> processes = new HashMap<>();
-    private boolean                         started   = false;
-    private long                            startedAt;
+    public HashMap<Integer, ProcessEntity> processes = new HashMap<>();
+    private boolean started = false;
+    private long startedAt;
 
     public ProcessHandler(ProcessConfig config) {
         out = new Logger(config.name, config.name + "/log");
-        this.executor = Executors.newFixedThreadPool(config.numprocs > 0 ? config.numprocs * 2 : 1);
+        this.executor = Executors.newCachedThreadPool();
         this.config = config;
         if (config.autostart)
             startAllProcesses();
@@ -34,7 +34,7 @@ public class ProcessHandler {
         ProcessEntity selfProcess = processes.get(i);
         if (selfProcess != null)
             selfProcess.kill(null);
-        out.log(Level.WARNING, "No processes processes %s%i.", config.name, i);
+        out.log(Level.WARNING, "No processes for %s_%i.", config.name, i);
         return false;
     }
 
@@ -75,15 +75,11 @@ public class ProcessHandler {
 
     public String getStringState() {
 
-        long i = Math.round((((double)getAliveProcesses() / (double)config.numprocs) * (double)3));
-        if (i == 1) return  Color.RED_BOLD + "danger :x" + Color.RESET ;
-        if (i == 2) return  Color.YELLOW_BOLD + "warning :o" + Color.RESET;
+        long i = Math.round((((double) getAliveProcesses() / (double) config.numprocs) * (double) 3));
+        if (i == 1) return Color.RED_BOLD + "danger :x" + Color.RESET;
+        if (i == 2) return Color.YELLOW_BOLD + "warning :o" + Color.RESET;
         if (i == 3) return Color.GREEN_BOLD_BRIGHT + "like a charm c:" + Color.RESET;
-        else return Color.WHITE_BRIGHT + Color.RED_BACKGROUND  + "critical :z" + Color.RESET;
-    }
-
-    public Optional<IProcessEntity> getProcessEntity(int p) {
-        return Optional.ofNullable(processes.get(p));
+        else return Color.WHITE_BRIGHT + Color.RED_BACKGROUND + "critical :z" + Color.RESET;
     }
 
     public ProcessConfig getConfig() {
@@ -102,6 +98,29 @@ public class ProcessHandler {
         return new SimpleDateFormat("dd/MM HH:mm:ss").format(new Date(startedAt));
     }
 
+    public void updateConfig(ProcessConfig pro) {
+        int numprocs = pro.numprocs;
+        int oldprocs = config.numprocs;
+
+        Optional<ProcessBuilder> pb = config.constructProcessBuilder();
+        if (pb.isPresent()) {
+            if (numprocs > oldprocs && started) {
+                for (int i = oldprocs; i < numprocs; i++) {
+                    ProcessEntity selfProcess = new ProcessEntity(this, pb.get(), i);
+                    processes.put(i, selfProcess);
+                    selfProcess.start();
+                }
+            }
+            else if (oldprocs > numprocs) {
+                for (int i = oldprocs - 1; i > numprocs; i--) {
+                    processes.get(i).stop();
+                    processes.remove(i);
+                }
+            }
+            processes.values().forEach(e -> e.setProcessBuilder(pb.get()));
+        }
+    }
+
     public static Optional<ProcessEntity> getByPid(long pid) {
         for (ProcessHandler processHandler : Server.processes.values()) {
             for (ProcessEntity processEntity : processHandler.processes.values()) {
@@ -114,12 +133,8 @@ public class ProcessHandler {
 
     public static Optional<ProcessEntity> getByNum(String name, int num) {
         ProcessHandler processHandler = Server.processes.get(name);
-        if (processHandler != null) {
-            for (ProcessEntity pe : processHandler.processes.values()) {
-                if (pe.getId() == num)
-                    return Optional.of(pe);
-            }
-        }
+        if (processHandler != null)
+            return Optional.of(processHandler.processes.get(num));
         return Optional.empty();
     }
 

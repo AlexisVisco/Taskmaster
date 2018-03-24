@@ -17,7 +17,7 @@ public class ProcessEntity implements IProcessEntity, Runnable {
     private final ProcessHandler parent;
 
     private final int            id;
-    private final ProcessBuilder pb;
+    private       ProcessBuilder pb;
     private       Process        process;
     private       long           timeAtLaunch;
     private       ProcessStatus  status;
@@ -186,5 +186,9 @@ public class ProcessEntity implements IProcessEntity, Runnable {
 
     public int getId() {
         return id;
+    }
+
+    public void setProcessBuilder(ProcessBuilder processBuilder) {
+        this.pb = processBuilder;
     }
 }
