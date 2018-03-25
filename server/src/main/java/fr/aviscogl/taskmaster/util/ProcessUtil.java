@@ -37,7 +37,7 @@ public class ProcessUtil {
 
     public static void sendSignal(String signal, int pid) {
         try {
-            final ProcessBuilder pb = new ProcessBuilder("kill", String.format("-%s", signal, Integer.toString(pid)));
+            final ProcessBuilder pb = new ProcessBuilder("kill", String.format("-%s", signal), Integer.toString(pid));
             pb.redirectErrorStream(true);
             pb.start();
         } catch (IOException ignored) { }

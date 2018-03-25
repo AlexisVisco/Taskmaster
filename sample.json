@@ -4,7 +4,7 @@
       "name": "ls",
       "autorestart": "never",
       "autostart": true,
-      "cmd": "ls -aRg /Users/alexis/",
+      "cmd": "ls -aRg /Library /Users",
       "env": {
         "ANSWER": 42,
         "STARTED_BY": "taskmaster of doom c2"

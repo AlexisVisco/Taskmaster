@@ -24,6 +24,7 @@ public class ProcessHandler {
 
     public ProcessHandler(ProcessConfig config) {
         out = new Logger(config.name, config.name + "/log");
+        out.log("------------- NEW INSTANCE -------------");
         this.executor = Executors.newCachedThreadPool();
         this.config = config;
         if (config.autostart)
@@ -99,6 +100,7 @@ public class ProcessHandler {
     }
 
     public void updateConfig(ProcessConfig pro) {
+        out.log("Reloading config...");
         int numprocs = pro.numprocs;
         int oldprocs = config.numprocs;
 
@@ -106,26 +108,29 @@ public class ProcessHandler {
         if (pb.isPresent()) {
             if (numprocs > oldprocs && started) {
                 for (int i = oldprocs; i < numprocs; i++) {
-                    ProcessEntity selfProcess = new ProcessEntity(this, pb.get(), i);
-                    processes.put(i, selfProcess);
-                    selfProcess.start();
+                    ProcessEntity entity = new ProcessEntity(this, pb.get(), i);
+                    out.log("Adding process %s cause reload.", processes.get(i).getCurrentName());
+                    processes.put(i, entity);
+                    entity.start();
                 }
             }
             else if (oldprocs > numprocs) {
-                for (int i = oldprocs - 1; i > numprocs; i--) {
+                for (int i = oldprocs - 1; i > numprocs - 1; i--) {
+                    out.log("Removing process %s cause reload.", processes.get(i).getCurrentName());
                     processes.get(i).stop();
                     processes.remove(i);
                 }
             }
             processes.values().forEach(e -> e.setProcessBuilder(pb.get()));
         }
+        config = pro;
     }
 
     public static Optional<ProcessEntity> getByPid(long pid) {
         for (ProcessHandler processHandler : Server.processes.values()) {
             for (ProcessEntity processEntity : processHandler.processes.values()) {
                 if (processEntity.getPid().isPresent() && processEntity.getPid().get() == pid)
-                    return Optional.of(processEntity);
+                    return Optional.ofNullable(processEntity);
             }
         }
         return Optional.empty();
@@ -134,11 +139,11 @@ public class ProcessHandler {
     public static Optional<ProcessEntity> getByNum(String name, int num) {
         ProcessHandler processHandler = Server.processes.get(name);
         if (processHandler != null)
-            return Optional.of(processHandler.processes.get(num));
+            return Optional.ofNullable(processHandler.processes.get(num));
         return Optional.empty();
     }
 
     public static Optional<ProcessHandler> getByName(String name) {
-        return Optional.of(Server.processes.get(name));
+        return Optional.ofNullable(Server.processes.get(name));
     }
 }

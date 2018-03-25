@@ -17,30 +17,38 @@ public class ConfigDiff {
 
     public String viewDiff() {
         StringBuilder sb = new StringBuilder();
-        updated.getPrograms().forEach(newConfig -> {
-            sb.append(newConfig.name + "\n");
-            Optional<ProcessConfig> config = origin.getConfig(newConfig.name);
-            for (Field field : ProcessConfig.class.getDeclaredFields()) {
-                try {
-                    Object newField = field.get(newConfig);
-                    if (!config.isPresent())
-                        sb.append(Color.GREEN + "  (+) " + getSimple(field, newField) + Color.RESET).append('\n');
-                    else {
-                        Object oldField = field.get(config.get());
-                        if (!oldField.toString().equals(newField.toString())) {
-                            sb.append(Color.RED + "  (-)   " + getSimple(field, oldField) + Color.RESET).append('\n')
-                              .append(Color.GREEN + "  (+)-> " + getSimple(field, newField) + Color.RESET).append('\n');
-                        }
-                        else
-                            sb.append("  " + getSimple(field, oldField)).append('\n');
+        updated.getPrograms().forEach(newConfig -> sb.append(viewDiff(newConfig)));
+        return sb.toString();
+    }
+
+    public String viewDiff(String name) {
+        StringBuilder sb = new StringBuilder();
+        updated.getConfig(name).ifPresent(pr -> sb.append(viewDiff(pr)));
+        return sb.toString();
+    }
+
+    private String viewDiff(ProcessConfig newConfig) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(newConfig.name + "\n");
+        Optional<ProcessConfig> config = origin.getConfig(newConfig.name);
+        for (Field field : ProcessConfig.class.getDeclaredFields()) {
+            try {
+                Object newField = field.get(newConfig);
+                if (!config.isPresent())
+                    sb.append(Color.GREEN + "  (+) " + getSimple(field, newField) + Color.RESET).append('\n');
+                else {
+                    Object oldField = field.get(config.get());
+                    if (!oldField.toString().equals(newField.toString())) {
+                        sb.append(Color.RED + "  (-)   " + getSimple(field, oldField) + Color.RESET).append('\n')
+                                .append(Color.GREEN + "  (+)-> " + getSimple(field, newField) + Color.RESET).append('\n');
                     }
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
+                    else
+                        sb.append("  " + getSimple(field, oldField)).append('\n');
                 }
-
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
             }
-
-        });
+        }
         return sb.toString();
     }
 

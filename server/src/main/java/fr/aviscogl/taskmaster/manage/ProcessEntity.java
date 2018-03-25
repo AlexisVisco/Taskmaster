@@ -82,7 +82,7 @@ public class ProcessEntity implements IProcessEntity, Runnable {
     private boolean restartOnFail() {
         if (status == ProcessStatus.LAUNCHING && parent.config.startretries >= startRetries)
         {
-            parent.out.log("Trying to restart processes %s, remaining %d. (cause: fail on start)", getCurrentName(),
+            parent.out.log("Trying to restart process %s, remaining %d. (cause: fail on start)", getCurrentName(),
                     parent.config.startretries - startRetries);
             status = ProcessStatus.TERMINATED;
             startRetries++;
@@ -100,13 +100,13 @@ public class ProcessEntity implements IProcessEntity, Runnable {
                 process.onExit().thenAccept(e -> r.run());
             ProcessUtil.sendSignal(parent.config.stopsignal, Math.toIntExact(process.pid()));
             Executors.newScheduledThreadPool(1).schedule(() -> {
-                process.destroyForcibly();
-                parent.out.log(Level.WARNING, "Forced to kill processes %s.", getCurrentName());
+                if (isAlive()) {
+                    process.destroyForcibly();
+                    parent.out.log(Level.WARNING, "Forced to kill processes %s.", getCurrentName());
+                }
             }, parent.config.stoptime, TimeUnit.SECONDS);
         }
-        else {
-            parent.out.logErr("Cant kill processes %s because it is already stopped.", getCurrentName());
-        }
+        else parent.out.logErr("Cant kill process %s because it is already stopped.", getCurrentName());
     }
 
     private boolean isNornalExitCode(int exitCode) {

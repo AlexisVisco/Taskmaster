@@ -11,7 +11,9 @@ import fr.aviscogl.taskmaster.util.Jsoner;
 import fr.aviscogl.taskmaster.util.Stringify;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -24,6 +26,16 @@ public class Config extends CommandExecutor {
         if (jsonFromFile.isPresent()) {
             Programs programs = jsonFromFile.get();
             out.println(new ConfigDiff(Server.programs, programs).viewDiff());
+        }
+        end();
+    }
+
+    @CommandRouter(regex = "diff (\\w+)")
+    public void diff(String name) {
+        Optional<Programs> jsonFromFile = Jsoner.getJsonFromFile(new File("sample.json"), Programs.class);
+        if (jsonFromFile.isPresent()) {
+            Programs programs = jsonFromFile.get();
+            out.println(new ConfigDiff(Server.programs, programs).viewDiff(name));
         }
         end();
     }
@@ -55,6 +67,34 @@ public class Config extends CommandExecutor {
         end();
     }
 
+    @CommandRouter(regex = "reload (\\w+)")
+    public void reloadConfig(String name) {
+        Optional<Programs> jsonFromFile = Jsoner.getJsonFromFile(new File("sample.json"), Programs.class);
+        if (jsonFromFile.isPresent()) {
+            Programs p = jsonFromFile.get();
+            p.updateFromThis(name, out);
+        }
+        end();
+    }
+
+    @CommandRouter(regex = "reload")
+    public void reloadConfig() {
+        List<String> updated = new ArrayList<>();
+        Server.programs.programs.forEach(e -> {
+            updated.add(e.name);
+            reloadConfig(e.name);
+        });
+        Optional<Programs> jsonFromFile = Jsoner.getJsonFromFile(new File("sample.json"), Programs.class);
+        if (jsonFromFile.isPresent()) {
+            Programs p = jsonFromFile.get();
+            p.programs.forEach(e -> {
+                if (!updated.contains(e.name))
+                    reloadConfig(name);
+            });
+        }
+        end();
+    }
+
     @Override
     public void defaultMethod() {
 
@@ -63,7 +103,8 @@ public class Config extends CommandExecutor {
                 .helpCommand("config show", "Show all config.")
                 .helpCommand("config reload <name>", "Reload config for processes $name.")
                 .helpCommand("config reload", "Reload all config.")
-                .helpCommand("config diff", "Show the difference between the config loaded nd the config on the disk.")
-        .end();
+                .helpCommand("config diff", "Show the difference between the config loaded and the config on the disk.")
+                .helpCommand("config diff <name>", "Show the difference between the config loaded and the config on the disk only for the process $name.")
+                .end();
     }
 }
