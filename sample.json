@@ -13,7 +13,7 @@
         0,
         1
       ],
-      "numprocs": 3,
+      "numprocs": 1,
       "startretries": 3,
       "starttime": 5,
       "stderr": "/tmp/nginx.stderr",

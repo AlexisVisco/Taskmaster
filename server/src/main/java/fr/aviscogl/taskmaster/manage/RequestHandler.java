@@ -24,8 +24,6 @@ public class RequestHandler extends Thread {
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
-                out.println("Hello, you are client #" + clientNumber + ".");
-
                 while (true) {
                     String input = in.readLine();
                     Server.global.log("Client #%d send: %s.", clientNumber, input);

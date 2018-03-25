@@ -69,6 +69,6 @@ public class Stop extends CommandExecutor implements IProcessAction {
                 .helpCommand("stop all", "Stop all processes actives.")
                 .helpCommand("stop <pid>", "Stop the process with the pid $pid.")
                 .helpCommand("stop <name> <id>", "Stop the process $id in the program $name.")
-                .end();
+        .end();
     }
 }

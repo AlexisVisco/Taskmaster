@@ -22,6 +22,7 @@ class Readline {
 
             fn.accept("status");
             fn.accept("start");
+            fn.accept("kill");
             fn.accept("stop");
             fn.accept("restart");
             fn.accept("reload");
@@ -37,20 +38,22 @@ class Readline {
             console.addCompleter(completer());
             console.setPrompt(PROMPT);
             String line;
-            while ((line = console.readLine()) != null) {
-                if (line.equals("exit"))
-                    client.reconnect("Manual exit");
+            while (!client.isClose && (line = console.readLine()) != null) {
+                if (line.equals("exit")) {
+                    client.getSocket().close();
+                    System.exit(0);
+                }
                 else
                     System.out.print(client.getResponseFromCommand(line));
             }
-        } catch (IOException e) {
-            client.reconnect("Readline didn't work well...");
-        } finally {
+        } catch (IOException ignored) { } finally {
             try {
                 TerminalFactory.get().restore();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+        while (client.isClose) ;
+        read();
     }
 }
