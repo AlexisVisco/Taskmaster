@@ -4,13 +4,14 @@ import fr.aviscogl.taskmaster.Server;
 import fr.aviscogl.taskmaster.command.Command;
 import fr.aviscogl.taskmaster.command.CommandExecutor;
 import fr.aviscogl.taskmaster.command.CommandRouter;
+import fr.aviscogl.taskmaster.command.IProcessAction;
 import fr.aviscogl.taskmaster.manage.ProcessHandler;
 
 @Command(label = "stop", alias = {"kill"})
-public class Stop extends CommandExecutor {
+public class Stop extends CommandExecutor implements IProcessAction {
 
-    @CommandRouter(regex = "(\\w+) (\\d+)")
-    public void stopProcess(String name, Integer num) {
+    @Override
+    public void processNameNum(String name, int num) {
         ProcessHandler.getByNum(name, num).ifPresentOrElse(
                 (e) -> {
                     if (e.isAlive()) {
@@ -24,8 +25,8 @@ public class Stop extends CommandExecutor {
         end();
     }
 
-    @CommandRouter(regex = "(\\w+)")
-    public void stopProcess(String name) {
+    @Override
+    public void processName(String name) {
         ProcessHandler.getByName(name).ifPresentOrElse(
                 (e) -> {
                     if (e.getAliveProcesses() != 0) {
@@ -39,8 +40,8 @@ public class Stop extends CommandExecutor {
         end();
     }
 
-    @CommandRouter(regex = "(\\d+)")
-    public void stopPid(long pid) {
+    @Override
+    public void processPid(int pid) {
         ProcessHandler.getByPid(pid).ifPresentOrElse(
                 (e) -> {
                     if (e.isAlive()) {
@@ -54,8 +55,8 @@ public class Stop extends CommandExecutor {
         end();
     }
 
-    @CommandRouter(regex = "all")
-    public void stopAll() {
+    @Override
+    public void processAll() {
         out.println("Stopping all processes !");
         Server.processes.values().forEach(ProcessHandler::killAllProcesses);
         end();

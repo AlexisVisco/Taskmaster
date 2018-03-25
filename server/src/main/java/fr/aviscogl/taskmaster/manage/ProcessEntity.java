@@ -177,6 +177,7 @@ public class ProcessEntity implements IProcessEntity, Runnable {
 
     @Override
     public void restart() {
+        parent.out.log("Restarting process %s.", getCurrentName());
         if (status.ordinal() <= 2) {
             this.kill(this::start);
         }

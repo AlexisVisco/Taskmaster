@@ -17,33 +17,41 @@ public class ConfigDiff {
 
     public String viewDiff() {
         StringBuilder sb = new StringBuilder();
-        updated.getPrograms().forEach(newConfig -> sb.append(viewDiff(newConfig)));
+        updated.getPrograms().forEach(newConfig -> sb.append(viewDiff(newConfig, newConfig.name)));
         return sb.toString();
     }
 
     public String viewDiff(String name) {
         StringBuilder sb = new StringBuilder();
-        updated.getConfig(name).ifPresent(pr -> sb.append(viewDiff(pr)));
+        updated.getConfig(name).ifPresentOrElse(
+                pr -> sb.append(viewDiff(pr, name)),
+                () -> sb.append(viewDiff(null, name))
+        );
         return sb.toString();
     }
 
-    private String viewDiff(ProcessConfig newConfig) {
+    private String viewDiff(ProcessConfig newConfig, String name) {
         StringBuilder sb = new StringBuilder();
-        sb.append(newConfig.name + "\n");
-        Optional<ProcessConfig> config = origin.getConfig(newConfig.name);
+        sb.append(name).append(":\n");
+        Optional<ProcessConfig> config = origin.getConfig(name);
         for (Field field : ProcessConfig.class.getDeclaredFields()) {
             try {
-                Object newField = field.get(newConfig);
-                if (!config.isPresent())
-                    sb.append(Color.GREEN + "  (+) " + getSimple(field, newField) + Color.RESET).append('\n');
+                if (!config.isPresent()) {
+                    Object newField = field.get(newConfig);
+                    sb.append(Color.GREEN + "  + ").append(getSimple(field, newField)).append(Color.RESET).append('\n');
+                }
                 else {
                     Object oldField = field.get(config.get());
-                    if (!oldField.toString().equals(newField.toString())) {
-                        sb.append(Color.RED + "  (-)   " + getSimple(field, oldField) + Color.RESET).append('\n')
-                                .append(Color.GREEN + "  (+)-> " + getSimple(field, newField) + Color.RESET).append('\n');
+                    if(newConfig == null)
+                        sb.append(Color.RED + "  - ").append(getSimple(field, oldField)).append(Color.RESET).append('\n');
+                    else {
+                        Object newField = field.get(newConfig);
+                        if (!oldField.toString().equals(newField.toString()))
+                            sb.append(Color.RED + "  - ").append(getSimple(field, oldField)).append(Color.RESET).append('\n')
+                                .append(Color.GREEN + "  + ").append(getSimple(field, newField)).append(Color.RESET).append('\n');
+                        else
+                            sb.append("  ").append(getSimple(field, oldField)).append('\n');
                     }
-                    else
-                        sb.append("  " + getSimple(field, oldField)).append('\n');
                 }
             } catch (IllegalAccessException e) {
                 e.printStackTrace();

@@ -1,9 +1,7 @@
 package fr.aviscogl.taskmaster;
 
 import fr.aviscogl.taskmaster.command.CommandHandler;
-import fr.aviscogl.taskmaster.command.list.Config;
-import fr.aviscogl.taskmaster.command.list.Start;
-import fr.aviscogl.taskmaster.command.list.Status;
+import fr.aviscogl.taskmaster.command.list.*;
 import fr.aviscogl.taskmaster.data.Programs;
 import fr.aviscogl.taskmaster.log.Logger;
 import fr.aviscogl.taskmaster.manage.ProcessHandler;
@@ -41,6 +39,8 @@ public class Server {
         CommandHandler.registerCommand(Status.class);
         CommandHandler.registerCommand(Start.class);
         CommandHandler.registerCommand(Config.class);
+        CommandHandler.registerCommand(Restart.class);
+        CommandHandler.registerCommand(Stop.class);
     }
 
     private static void initPrograms() {

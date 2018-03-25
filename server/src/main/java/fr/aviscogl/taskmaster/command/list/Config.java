@@ -22,10 +22,20 @@ public class Config extends CommandExecutor {
 
     @CommandRouter(regex = "diff")
     public void diff() {
+        List<String> updated = new ArrayList<>();
         Optional<Programs> jsonFromFile = Jsoner.getJsonFromFile(new File("sample.json"), Programs.class);
+
         if (jsonFromFile.isPresent()) {
-            Programs programs = jsonFromFile.get();
-            out.println(new ConfigDiff(Server.programs, programs).viewDiff());
+            ConfigDiff configDiff = new ConfigDiff(Server.programs, jsonFromFile.get());
+            Server.programs.programs.forEach(e -> {
+                updated.add(e.name);
+                out.println(configDiff.viewDiff(e.name));
+            });
+            Programs p = jsonFromFile.get();
+            p.programs.forEach(e -> {
+                if (!updated.contains(e.name))
+                    out.println(configDiff.viewDiff(e.name));
+            });
         }
         end();
     }
@@ -69,12 +79,16 @@ public class Config extends CommandExecutor {
 
     @CommandRouter(regex = "reload (\\w+)")
     public void reloadConfig(String name) {
+        reloadConfigExt(name);
+        end();
+    }
+
+    private void reloadConfigExt(String name) {
         Optional<Programs> jsonFromFile = Jsoner.getJsonFromFile(new File("sample.json"), Programs.class);
         if (jsonFromFile.isPresent()) {
             Programs p = jsonFromFile.get();
             p.updateFromThis(name, out);
         }
-        end();
     }
 
     @CommandRouter(regex = "reload")
@@ -82,14 +96,14 @@ public class Config extends CommandExecutor {
         List<String> updated = new ArrayList<>();
         Server.programs.programs.forEach(e -> {
             updated.add(e.name);
-            reloadConfig(e.name);
+            reloadConfigExt(e.name);
         });
         Optional<Programs> jsonFromFile = Jsoner.getJsonFromFile(new File("sample.json"), Programs.class);
         if (jsonFromFile.isPresent()) {
             Programs p = jsonFromFile.get();
             p.programs.forEach(e -> {
                 if (!updated.contains(e.name))
-                    reloadConfig(name);
+                    reloadConfigExt(e.name);
             });
         }
         end();

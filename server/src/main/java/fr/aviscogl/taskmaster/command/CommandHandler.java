@@ -1,6 +1,7 @@
 package fr.aviscogl.taskmaster.command;
 
 import fr.aviscogl.taskmaster.Server;
+import fr.aviscogl.taskmaster.util.ReflectUtil;
 
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -12,6 +13,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class CommandHandler {
 
@@ -37,7 +39,7 @@ public class CommandHandler {
             Class<? extends CommandExecutor> cl = commands.get(split[0]);
             if (cl == null) {
                 out.println(Server.END);
-                return ;
+                return;
             }
 
             CommandExecutor commandExecutor = cl.newInstance();
@@ -66,10 +68,15 @@ public class CommandHandler {
         }
     }
 
-    private static Iterable<? extends Method> getMethodsByPriority(Class<? extends CommandExecutor> cl) {
-        List<Method> collect = Arrays.stream(cl.getMethods())
-                .filter(a -> getFirstAnnotation(a, CommandRouter.class).isPresent())
-                .collect(Collectors.toList());
+    private static Iterable<? extends Method> getMethodsByPriority(Class<? extends CommandExecutor> clz) {
+        List<Method> collect =
+                Stream.concat(Stream.of(clz),
+                        Stream.concat(
+                                Stream.of(ReflectUtil.getAllSuperClasses(clz)),
+                                Stream.of(ReflectUtil.getAllInterfaces(clz))))
+                        .flatMap(e -> Arrays.stream(e.getMethods()))
+                        .filter(a -> getFirstAnnotation(a, CommandRouter.class).isPresent())
+                        .collect(Collectors.toList());
         collect.sort((a, b) -> {
             Optional<CommandRouter> c1 = getFirstAnnotation(a, CommandRouter.class);
             Optional<CommandRouter> c2 = getFirstAnnotation(b, CommandRouter.class);
