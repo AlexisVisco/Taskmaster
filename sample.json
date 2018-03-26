@@ -13,9 +13,9 @@
         0,
         1
       ],
-      "numprocs": 1,
+      "numprocs": 4,
       "startretries": 3,
-      "starttime": 5,
+      "starttime": 8,
       "stderr": "/tmp/nginx.stderr",
       "stdout": "/tmp/nginx.stdout",
       "stopsignal": "TERM",

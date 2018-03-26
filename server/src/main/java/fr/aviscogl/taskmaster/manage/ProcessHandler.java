@@ -109,8 +109,8 @@ public class ProcessHandler {
             if (numprocs > oldprocs && started) {
                 for (int i = oldprocs; i < numprocs; i++) {
                     ProcessEntity entity = new ProcessEntity(this, pb.get(), i);
-                    out.log("Adding process %s cause reload.", processes.get(i).getCurrentName());
                     processes.put(i, entity);
+                    out.log("Adding process %s cause reload.", processes.get(i).getCurrentName());
                     entity.start();
                 }
             }
