@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="26f1ccb9-9740-4abd-a9b8-566f2055e05c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/launch-client" afterPath="$PROJECT_DIR$/launch-client" />
       <change beforePath="$PROJECT_DIR$/sample.json" afterPath="$PROJECT_DIR$/sample.json" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/manage/ProcessHandler.java" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/manage/ProcessHandler.java" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/Server.java" afterPath="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/Server.java" />
     </list>
     <ignored path="$PROJECT_DIR$/client/.gradle/" />
     <ignored path="$PROJECT_DIR$/client/build/" />
@@ -94,7 +93,7 @@
         <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/CommandExecutor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -104,7 +103,7 @@
         <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/util/ConfigDiff.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="952">
-              <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+              <caret line="60" column="5" lean-forward="false" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -123,14 +122,14 @@
       <file leaf-file-name="TableGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/util/TableGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
+            <state relative-caret-position="833">
               <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Stringify.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Stringify.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/util/Stringify.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
@@ -140,31 +139,31 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/Server.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="816">
+              <caret line="60" column="5" lean-forward="false" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sample.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sample.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="IProcessAction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/IProcessAction.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Status.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/list/Status.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="26" column="5" lean-forward="false" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Stop.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/list/Stop.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="71" column="8" lean-forward="false" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
+              <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -557,11 +556,11 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$/client" value="4563339375000" />
+        <entry key="$PROJECT_DIR$/client" value="4566187956000" />
         <entry key="$PROJECT_DIR$/client/build.gradle" value="2092522923" />
         <entry key="$PROJECT_DIR$/client/gradle/wrapper/gradle-wrapper.properties" value="615277776" />
         <entry key="$PROJECT_DIR$/client/settings.gradle" value="2604718769" />
-        <entry key="$PROJECT_DIR$/server" value="4564645218000" />
+        <entry key="$PROJECT_DIR$/server" value="4566187956000" />
         <entry key="$PROJECT_DIR$/server/build.gradle" value="1718952201" />
         <entry key="$PROJECT_DIR$/server/gradle/wrapper/gradle-wrapper.properties" value="1061797022" />
         <entry key="$PROJECT_DIR$/server/settings.gradle" value="3556901170" />
@@ -877,7 +876,6 @@
         <option value="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/util/ReflectUtil.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/CommandHandler.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/list/Restart.java" />
-        <option value="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/Server.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/IProcessAction.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/util/ConfigDiff.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/list/Stop.java" />
@@ -887,8 +885,9 @@
         <option value="$PROJECT_DIR$/client/src/main/java/fr/aviscogl/taskmaster/Readline.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/manage/ProcessHandler.java" />
         <option value="$PROJECT_DIR$/launch-client" />
-        <option value="$PROJECT_DIR$/sample.json" />
         <option value="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/list/Config.java" />
+        <option value="$PROJECT_DIR$/sample.json" />
+        <option value="$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/Server.java" />
       </list>
     </option>
   </component>
@@ -1015,56 +1014,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Taskmaster" type="58d84e3e:PackageViewProjectNode" />
-              <item name="server" type="eaaa3913:PackageViewModuleGroupNode" />
-            </path>
-            <path>
-              <item name="Taskmaster" type="58d84e3e:PackageViewProjectNode" />
-              <item name="server" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="server_main" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="Taskmaster" type="58d84e3e:PackageViewProjectNode" />
-              <item name="server" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="server_main" type="616d4139:PackageViewModuleNode" />
-              <item name="fr.aviscogl.taskmaster" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="Taskmaster" type="58d84e3e:PackageViewProjectNode" />
-              <item name="server" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="server_main" type="616d4139:PackageViewModuleNode" />
-              <item name="fr.aviscogl.taskmaster" type="1f31426a:PackageElementNode" />
-              <item name="command" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="Taskmaster" type="58d84e3e:PackageViewProjectNode" />
-              <item name="server" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="server_main" type="616d4139:PackageViewModuleNode" />
-              <item name="fr.aviscogl.taskmaster" type="1f31426a:PackageElementNode" />
-              <item name="data" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="Taskmaster" type="58d84e3e:PackageViewProjectNode" />
-              <item name="server" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="server_main" type="616d4139:PackageViewModuleNode" />
-              <item name="fr.aviscogl.taskmaster" type="1f31426a:PackageElementNode" />
-              <item name="manage" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="Taskmaster" type="58d84e3e:PackageViewProjectNode" />
-              <item name="server" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="server_main" type="616d4139:PackageViewModuleNode" />
-              <item name="fr.aviscogl.taskmaster" type="1f31426a:PackageElementNode" />
-              <item name="util" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -1193,6 +1142,56 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="taskmaster" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Taskmaster" type="58d84e3e:PackageViewProjectNode" />
+              <item name="server" type="eaaa3913:PackageViewModuleGroupNode" />
+            </path>
+            <path>
+              <item name="Taskmaster" type="58d84e3e:PackageViewProjectNode" />
+              <item name="server" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="server_main" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="Taskmaster" type="58d84e3e:PackageViewProjectNode" />
+              <item name="server" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="server_main" type="616d4139:PackageViewModuleNode" />
+              <item name="fr.aviscogl.taskmaster" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="Taskmaster" type="58d84e3e:PackageViewProjectNode" />
+              <item name="server" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="server_main" type="616d4139:PackageViewModuleNode" />
+              <item name="fr.aviscogl.taskmaster" type="1f31426a:PackageElementNode" />
+              <item name="command" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="Taskmaster" type="58d84e3e:PackageViewProjectNode" />
+              <item name="server" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="server_main" type="616d4139:PackageViewModuleNode" />
+              <item name="fr.aviscogl.taskmaster" type="1f31426a:PackageElementNode" />
+              <item name="data" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="Taskmaster" type="58d84e3e:PackageViewProjectNode" />
+              <item name="server" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="server_main" type="616d4139:PackageViewModuleNode" />
+              <item name="fr.aviscogl.taskmaster" type="1f31426a:PackageElementNode" />
+              <item name="manage" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="Taskmaster" type="58d84e3e:PackageViewProjectNode" />
+              <item name="server" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="server_main" type="616d4139:PackageViewModuleNode" />
+              <item name="fr.aviscogl.taskmaster" type="1f31426a:PackageElementNode" />
+              <item name="util" type="1f31426a:PackageElementNode" />
             </path>
           </expand>
           <select />
@@ -1403,6 +1402,7 @@
       <workItem from="1521963297400" duration="11033000" />
       <workItem from="1522003977943" duration="4427000" />
       <workItem from="1522063460661" duration="1316000" />
+      <workItem from="1522155658725" duration="677000" />
     </task>
     <task id="LOCAL-00001" summary="add gitignore, fix server">
       <created>1520889574143</created>
@@ -1506,7 +1506,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88390000" />
+    <option name="totallyTimeSpent" value="89067000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
@@ -1520,7 +1520,7 @@
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2501829" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39575714" sideWeight="0.497558" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.117553614" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1183479" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08485959" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1708,8 +1708,8 @@
         <state relative-caret-position="1020">
           <caret line="69" column="70" lean-forward="false" selection-start-line="69" selection-start-column="70" selection-end-line="69" selection-end-column="70" />
           <folding>
-            <element signature="e#2651#2652#0" expanded="true" />
-            <element signature="e#2680#2681#0" expanded="true" />
+            <element signature="e#2651#2652#0" expanded="false" />
+            <element signature="e#2680#2681#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1722,20 +1722,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="42" column="42" lean-forward="false" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -1753,15 +1744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="41" lean-forward="false" selection-start-line="0" selection-start-column="41" selection-end-line="0" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1775,7 +1757,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/list/Status.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
+        <state relative-caret-position="340">
           <caret line="26" column="5" lean-forward="false" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
           <folding />
         </state>
@@ -1800,7 +1782,7 @@
     <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/IProcessAction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+          <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -1816,7 +1798,7 @@
     <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/command/CommandExecutor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1824,7 +1806,7 @@
     <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/util/ConfigDiff.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="952">
-          <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+          <caret line="60" column="5" lean-forward="false" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1839,7 +1821,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/util/TableGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
+        <state relative-caret-position="833">
           <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding />
         </state>
@@ -1849,6 +1831,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="21" column="45" lean-forward="false" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/fr/aviscogl/taskmaster/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="60" column="5" lean-forward="false" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
           <folding />
         </state>
       </provider>

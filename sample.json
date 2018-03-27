@@ -13,12 +13,12 @@
         0,
         1
       ],
-      "numprocs": 4,
+      "numprocs": 8,
       "startretries": 3,
       "starttime": 8,
       "stderr": "/tmp/nginx.stderr",
       "stdout": "/tmp/nginx.stdout",
-      "stopsignal": "TERM",
+      "stopsignal": "TERMuky,uhjmtgh",
       "stoptime": 10,
       "umask": 18,
       "workingdir": "/tmp"

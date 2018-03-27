@@ -25,6 +25,10 @@ public class Server {
     public static Programs programs = null;
 
     public static void main(String[] args) throws Exception {
+        if (args.length > 0) {
+            if (Integer.parseInt(args[0]) > 0)
+                PORT = Integer.parseInt(args[0]);
+        }
         System.out.println("The server is running !");
         initPrograms();
         registerCommands();
@@ -55,6 +59,4 @@ public class Server {
         }
         programs.getPrograms().forEach(e -> processes.put(e.name, new ProcessHandler(e)));
     }
-
-
 }
